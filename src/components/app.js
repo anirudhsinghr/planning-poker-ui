@@ -72,8 +72,8 @@ const Room = function({ id, api, storage }) {
 	const [user, setUser] = useState(null);
 
 	const handleRoomNotFound = () => setError("No Room With Given Id Found");
-	const handleStateChange = (newState) => {console.log(newState); setState(newState)}
-	const handleRoomJoin = (data) => { console.log(data); setUser(data); storage.save(data); }
+	const handleStateChange = (newState) => setState(newState);
+	const handleRoomJoin = (data) => { setUser(data); storage.save(data); }
 	const handlePackChange = (e) => api.changePack({...storage.getData(id), packName: e.target.value});
 	const handleVoteCast = (roomId, voterId, vote) => api.castVote({ roomId, voterId, vote });
 	const handleReset = (roomId, voterId) => api.reset({ roomId, voterId });
